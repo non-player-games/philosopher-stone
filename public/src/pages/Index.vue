@@ -16,21 +16,25 @@
         </button>
       </div>
       <div class="board__playground">
-        playground
+        <div class="actions">
+        </div>
+        <canvas class="fill"></canvas>
+        <div class="actions">
+          <div class="action" v-for="action in actions" :class="action.name">
+            {{action.symbol}}
+          </div>
+        </div>
       </div>
       <div class="board__hands">
-        <button class="card">
-          🜁
-        </button>
-        <button class="card">
-          🜂
-        </button>
-        <button class="card --selected">
-          🜃
-        </button>
-        <button class="card">
-          🜄
-        </button>
+        <div class="card" v-for="element in basicElements" :class="element.name"
+          @click="selectElement(element)">
+          <span class="card__media">
+            {{element.symbol}}
+          </span>
+          <span class="card__label">
+            {{element.name}}
+          </span>
+        </div>
       </div>
     </div>
 
@@ -48,18 +52,21 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
-
 export default {
   name: 'app',
   computed: {
-    counter () {
-      return this.$store.state.count
+    basicElements () {
+      return this.$store.state.elements.basicElements
+    },
+    actions () {
+      return this.$store.state.elements.actions
     }
   },
-  methods: mapMutations([
-    'increment'
-  ])
+  methods: {
+    selectElement (element) {
+      this.$store.commit('addAction', element)
+    }
+  }
 }
 </script>
 
@@ -78,6 +85,29 @@ export default {
 
 .game .game__board .board__playground {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.board__playground .actions {
+  border-bottom: 3px solid var(--grey);
+  borde-radius: 1em;
+  height: 3em;
+  padding: 0.3em;
+  display: flex;
+}
+.board__playground .actions .action {
+  padding: 0.1em;
+  font-size: 1.6em;
+  line-height: 1.3em;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #bbb;
+  background-color: #eee;
+  border-radius: 0.3em;
+  margin: 0 0.5rem;
 }
 
 .board__hands {

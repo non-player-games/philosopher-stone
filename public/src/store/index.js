@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import * as actions from './actions'
 import * as mutations from './mutations'
+import elements from './modules/elements'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,10 @@ const state = {
 const store = new Vuex.Store({
   state,
   actions,
-  mutations
+  mutations,
+  modules: {
+    elements
+  }
 })
 
 if (module.hot) {

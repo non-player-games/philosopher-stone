@@ -5,6 +5,7 @@
   --blue: #2196F3;
   --green: #4CAF50;
   --brown: #795548;
+  --grey: #9E9E9E;
   --background-color: #fff;
 
   --depth-two: {
@@ -85,8 +86,23 @@ svg {
   height: 6em;
   width: 4em;
   display: flex;
+  color: #000;
+  text-align: center;
+  flex-direction: column;
   justify-content: center;
   alitn-items: center;
+  transition: 0.5s all;
+}
+.card .card__media {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+.card .card__label {
+  color: #BDBDBD;
+  transition: 0.5s all;
+}
+.card:hover .card__label {
+  color: #222;
 }
 .card.back {
   background-color: #222;
@@ -94,6 +110,22 @@ svg {
 .card.primary {
   color: var(--red);
   fill: var(--red);
+}
+.card.water:hover,
+.action.water {
+  color: var(--blue);
+}
+.card.fire:hover,
+.action.fire {
+  color: var(--red);
+}
+.card.earth:hover,
+.action.earth {
+  color: var(--green);
+}
+.card.air:hover,
+.action.air {
+  color: var(--grey);
 }
 .card svg {
   height: 1em;

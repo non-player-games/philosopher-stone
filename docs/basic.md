@@ -14,7 +14,7 @@ Classical elements being:
 Philophical elements being:
 
 * Sulphur
-	* Characterizing principle of combustibility -- like spells
+	* Characterizing principle of combustibility -- like potions to cast spells or summons
 * Mercury
 	* Characterizing principle of metallic -- like equipments
 
@@ -24,8 +24,8 @@ Philophical elements being:
 
 Objectives:
 
-* Get certain philosophical points (victory points)
-* Last man standing
+* ~~Get certain philosophical points (victory points)~~
+* Defeat others
 
 Gameplay will involves two phases:
 

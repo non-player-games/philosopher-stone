@@ -1,27 +1,48 @@
-const state = {
-  elements: [],
-  potions: [],
-  deck: []
-}
+const BASIC_ELEMENTS = [
+  {
+    name: 'air',
+    symbol: '🜁'
+  },
+  {
+    name: 'earth',
+    symbol: '🜃'
+  },
+  {
+    name: 'fire',
+    symbol: '🜂'
+  },
+  {
+    name: 'water',
+    symbol: '🜄'
+  }
+]
+const MAX_ACTIONS = 7
 
-const getters = {
-  selectedElements: state => state.elements.filter(e => selected)
+const state = {
+  basicElements: BASIC_ELEMENTS,
+  actions: []
 }
 
 const actions = {
+  sendAction ({commit, state}) {
+    console.log('Sending actions')
+    commit('reset')
+  }
 }
 
 const mutations = {
-  init (state, deck) {
-    state.deck = deck
+  addAction (state, action) {
+    if (state.actions.length < MAX_ACTIONS) {
+      state.actions.push(action)
+    }
   },
-  deal (state, elements) {
-    state.elements = elements.splice(0)
-  },
-  select (state, element) {
-    state.elements.splice
-  },
-  combine (state) {
-    console.log('Combining elements: %o', state.elements.filter(e => e.selected))
+  reset (state) {
+    state.actions = []
   }
+}
+
+export default {
+  state,
+  actions,
+  mutations
 }
